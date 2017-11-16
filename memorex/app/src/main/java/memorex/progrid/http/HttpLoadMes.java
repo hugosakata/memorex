@@ -1,10 +1,12 @@
 package memorex.progrid.http;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import org.json.JSONException;
 
@@ -25,7 +27,7 @@ public class HttpLoadMes extends HttpBase {
     private Context context;
     private View view;
 
-    public HttpLoadMes(Common common, Context context, String url){
+    public HttpLoadMes(Common common, Context context, String url, View view){
 
         this.common = common;
         this.context = context;
@@ -36,14 +38,19 @@ public class HttpLoadMes extends HttpBase {
 
     @Override
     protected void onPostExecute(String result) {
-        if (common.mes == null)
+        if (common.mes == null) {
             try {
                 common.mes = ManipuladorJson.jsonMesToBase(result);
-                Log.i("memorex", "Start");
-                context.startActivity(new Intent(context.getApplicationContext(), CalendarActivity.class));
-
             } catch (JSONException e) {
-
+                if (result.equals("server nao encontrado")) {
+                    ((TextView) view).setText(result);
+                    return;
+                }
             }
+        }
+        Log.i("memorex", "Start");
+        context.startActivity(new Intent(context.getApplicationContext(), CalendarActivity.class));
+        ((Activity)context).finish();
+
     }
 }

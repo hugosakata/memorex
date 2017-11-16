@@ -2,6 +2,7 @@ package memorex.progrid.http;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -40,6 +41,8 @@ public class HttpBase extends AsyncTask<Void, Void, String> {
 
         } catch (Exception e) {
             e.printStackTrace();
+            Log.i("memorex", "******************* server nao encontrado");
+            result.append("server nao encontrado");
         } finally {
             urlConnection.disconnect();
             Log.i("memorex", "******************* desconectado");
