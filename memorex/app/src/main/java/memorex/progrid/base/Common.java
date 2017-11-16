@@ -11,6 +11,7 @@ public class Common extends Application {
 
     public static Mes mes = null;
     public static Date diaCorrente;
+    public static String url_server = "http://192.168.43.47:8080/MemorexWs/webresources/memorex/memorex/";
 
 
     public Dia getDate(int intDia, int intMes, int intANo){

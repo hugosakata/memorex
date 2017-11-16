@@ -1,67 +1,39 @@
-package memorex.progrid.activities;
+package memorex.progrid.base;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.Toast;
+
+import android.app.Application;
+import android.os.Environment;
 
 import org.json.JSONException;
 
-import memorex.progrid.base.Common;
-import memorex.progrid.base.ManipuladorJson;
-import memorex.progrid.http.HttpLoadMes;
-import memorex.progrid.memorex2.R;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
-public class ActivityBase extends AppCompatActivity {
+public class LoadMes extends Application {
 
-    protected FrameLayout base;
-    protected Common common;
-    protected ImageView btnListOrCal;
-    protected ImageView btnPesquisar;
-    protected ImageView btnLembrete;
+    private Common common;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base);
-
-        common = (Common)getApplicationContext();
-
-        btnListOrCal = (ImageView) findViewById(R.id.btnListOrCal);
-
-        btnPesquisar = (ImageView) findViewById(R.id.btnPesquisar);
-        btnPesquisar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        btnLembrete = (ImageView) findViewById(R.id.btnLembrete);
-        btnLembrete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ActivityBase.this, LembreteActivity.class));
-            }
-        });
-
-        base = (FrameLayout) findViewById(R.id.base);
-
-        try {
-            loadDia();
-        } catch (JSONException e) {
-
-        }
+    public LoadMes(Common common){
+        this.common = common;
     }
 
-    private void loadDia() throws JSONException {
+    public boolean loadMes(String mes, String ano) throws JSONException {
 
-        //agencia 11, conta 22, mes 11, ano 2017
-        //new HttpLoadMes(common, "dadositemMes/11/22/11/2017", btnLembrete).execute();
+        boolean resp = false;
 
+        //todo: conectar ao server e puxar o arquivo.json do mes/ano
+
+//        File file = new File(common.path + );
+//
+//        String services = ReadFromfile(mes+ano+".json");
+//
+//
+//
+//        return resp;
 
         String json = "{\n" +
                 "  \"mes\": 10,\n" +
@@ -216,7 +188,40 @@ public class ActivityBase extends AppCompatActivity {
                 "  ]\n" +
                 "}";
 
-
+        if (common.mes == null)
+            common.mes = ManipuladorJson.jsonMesToBase(json);
         //Toast.makeText(getApplicationContext(), "certo",Toast.LENGTH_LONG).show();
+
+        return resp;
     }
+
+    private String ReadFromfile(String fileName) {
+
+        String resp = "";
+
+        File sdcard = Environment.getExternalStorageDirectory();
+
+        File file = new File(sdcard,fileName);
+
+        StringBuilder text = new StringBuilder();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                text.append(line);
+                text.append('\n');
+            }
+            br.close();
+
+            resp = text.toString();
+
+        }
+        catch (IOException e) {
+        }
+
+        return resp;
+    }
+
 }
