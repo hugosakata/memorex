@@ -54,7 +54,7 @@ public class DiaActivity extends ActivityBase {
             mes = dia.getMes();
             ano = dia.getAno();
 
-            btnListOrCal.setImageResource(R.drawable.back);
+            btnListOrCal.setImageResource(R.drawable.voltar_detalhamento);
             btnListOrCal.invalidate();
 
             btnListOrCal.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +65,7 @@ public class DiaActivity extends ActivityBase {
             });
         }else
         {
-            btnListOrCal.setImageResource(R.drawable.calendar);
+            btnListOrCal.setImageResource(R.drawable.calendario_icone);
             btnListOrCal.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

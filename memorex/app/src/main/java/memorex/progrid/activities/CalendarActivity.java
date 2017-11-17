@@ -47,7 +47,7 @@ public class CalendarActivity extends ActivityBase {
 		base.addView(linear, new ViewGroup.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT,
 				WindowManager.LayoutParams.MATCH_PARENT));
 
-		btnListOrCal.setImageResource(R.drawable.list);
+		btnListOrCal.setImageResource(R.drawable.lista_icone);
 		btnListOrCal.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -71,7 +71,8 @@ public class CalendarActivity extends ActivityBase {
 		handler.post(calendarUpdater);
 
 		TextView title = (TextView) findViewById(R.id.title);
-		title.setText(android.text.format.DateFormat.format("MMMM yyyy", month));
+		String mes = android.text.format.DateFormat.format("MMMM yyyy", month).toString();
+		title.setText(mes.substring(0, 1).toUpperCase() + mes.substring(1));
 
 		RelativeLayout previous = (RelativeLayout) findViewById(R.id.previous);
 
@@ -157,7 +158,7 @@ public class CalendarActivity extends ActivityBase {
 			dia.setDia(Integer.parseInt(data[2]));
 			dia.setMes(Integer.parseInt(data[1]));
 			dia.setAno(Integer.parseInt(data[0]));
-			
+
 		}
 
 		intent.putExtra("dia", dia);

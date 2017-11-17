@@ -17,19 +17,20 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/back"
+            android:src="@drawable/voltar_detalhamento"
             android:padding="10dp"
             android:id="@+id/btnBack"/>
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:id="@+id/txtNome"
             android:text="Título"
             android:layout_margin="10dp"
             android:textColor="@color/azul_titulo"
-            android:textSize="16sp"
+            android:textSize="25sp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            android:id="@+id/txtNome"/>
+            android:layout_gravity="center_vertical" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -50,45 +51,38 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
 
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="wrap_content"
-                    android:layout_height="101dp"
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
-                    android:paddingTop="10dp"
-                    app:srcCompat="@drawable/dog" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    app:srcCompat="@drawable/rex_redondo" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
 
                     <TextView
                         android:id="@+id/textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingTop="10dp"
-                        android:text="Rex Alerta"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:text="Rex Alerta!"
                         android:textColor="@android:color/background_light"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:visibility="visible" />
 
                     <TextView
                         android:id="@+id/alertaRex"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingBottom="15dp"
-                        android:paddingTop="15dp"
-                        android:text="Não há saldo suficiente em conta-corrente para efetivar o pagamento."
-                        android:textAppearance="@style/TextAppearance.AppCompat"
-                        android:textSize="18sp" />
+                        android:textColor="@android:color/background_light"
+                        android:text="Não há saldo suficiente para efetivar o pagamento desse título."
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
@@ -136,7 +130,7 @@
                     android:layout_width="74dp"
                     android:layout_height="23dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/arrow_top"
+                    app:srcCompat="@drawable/recolhe"
                     android:layout_gravity="center" />
 
             </LinearLayout>
@@ -162,7 +156,7 @@
                     android:layout_width="74dp"
                     android:layout_height="23dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/arrow_down"
+                    app:srcCompat="@drawable/expandir"
                     android:layout_gravity="center" />
 
             </LinearLayout>
@@ -179,6 +173,37 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/btnCredito"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#009900"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/cash"
+                        android:layout_width="54dp"
+                        android:layout_height="41dp"
+                        app:srcCompat="@drawable/cifrao" />
+
+                    <TextView
+                        android:id="@+id/creditoNovo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:text="Simular Crédito Novo"
+                        android:textColor="@android:color/background_light"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/btnPoupanca"
@@ -198,7 +223,7 @@
                         android:layout_height="41dp"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
-                        app:srcCompat="@drawable/pig" />
+                        android:src="@drawable/porquinho" />
 
                     <TextView
                         android:id="@+id/resgatePoupanca"
@@ -208,37 +233,6 @@
                         android:paddingLeft="10dp"
                         android:paddingTop="10dp"
                         android:text="Resgate de Poupança"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btnCredito"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/azul_titulo"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/cash"
-                        android:layout_width="54dp"
-                        android:layout_height="41dp"
-                        app:srcCompat="@drawable/cash" />
-
-                    <TextView
-                        android:id="@+id/creditoNovo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="10dp"
-                        android:text="Crédito Novo"
                         android:textColor="@android:color/background_light"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -282,7 +276,7 @@
                     android:layout_width="74dp"
                     android:layout_height="23dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/arrow_top"
+                    app:srcCompat="@drawable/recolhe"
                     android:layout_gravity="center" />
 
             </LinearLayout>
@@ -309,7 +303,7 @@
                     android:layout_width="74dp"
                     android:layout_height="23dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/arrow_down"
+                    app:srcCompat="@drawable/expandir"
                     android:layout_gravity="center"/>
 
             </LinearLayout>

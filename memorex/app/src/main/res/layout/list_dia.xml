@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:gravity="center_vertical"
     android:paddingBottom="10dp"
-    android:background="@color/cinza_background">
+    android:background="@color/branco">
 
     <TextView
         android:id="@+id/txtDia"
@@ -15,11 +15,6 @@
         android:text="Nome"
         android:textSize="17sp"
         android:padding="15dp"/>
-
-    <View android:layout_width="match_parent" android:layout_height="1dp"
-        android:background="@color/linha_alta" />
-    <View android:layout_width="match_parent" android:layout_height="1dp"
-        android:background="@color/linha_baixa" />
 
     <!--<ListView-->
         <!--android:id="@+id/listTitulos"-->

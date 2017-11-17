@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Memorex2</string>
+    <string name="app_name">Memorex</string>
     <string-array name="arrayFrequencia">
         <item></item>
         <item>"Eventual"</item>
