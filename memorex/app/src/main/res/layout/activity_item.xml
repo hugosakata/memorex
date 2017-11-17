@@ -127,7 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingLeft="10dp"
+                    android:padding="10dp"
                     android:text="Soluções"
                     android:textSize="18sp" />
 
@@ -136,7 +136,8 @@
                     android:layout_width="74dp"
                     android:layout_height="23dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/arrow_top" />
+                    app:srcCompat="@drawable/arrow_top"
+                    android:layout_gravity="center" />
 
             </LinearLayout>
 
@@ -271,7 +272,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingLeft="10dp"
+                    android:padding="10dp"
                     android:text="Dados"
                     android:textSize="18sp" />
 
@@ -280,7 +281,8 @@
                     android:layout_width="74dp"
                     android:layout_height="23dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/arrow_top" />
+                    app:srcCompat="@drawable/arrow_top"
+                    android:layout_gravity="center" />
 
             </LinearLayout>
 
