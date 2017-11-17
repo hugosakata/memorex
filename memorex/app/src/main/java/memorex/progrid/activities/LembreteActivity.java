@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -47,12 +48,17 @@ public class LembreteActivity extends ActivityBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-     // Não sei o que é esse Linear
-        LinearLayout linear = (LinearLayout) View.inflate(this,
-                R.layout.activity_lembrete, null);
-        base.addView(linear, new ViewGroup.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.MATCH_PARENT));
+
         setContentView(R.layout.activity_lembrete);
+
+        ImageView btnBack = (ImageView) findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         // Apontando os componentes da tela activity xml
         final Spinner spinnerDia = (Spinner) findViewById(R.id.spinnerDia);
         final TextView textViewDia = (TextView) findViewById(R.id.textViewDia);
