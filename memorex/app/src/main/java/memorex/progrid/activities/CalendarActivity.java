@@ -157,12 +157,13 @@ public class CalendarActivity extends ActivityBase {
 			dia.setDia(Integer.parseInt(data[2]));
 			dia.setMes(Integer.parseInt(data[1]));
 			dia.setAno(Integer.parseInt(data[0]));
+			
 		}
 
 		intent.putExtra("dia", dia);
 		startActivity(intent);
 
-		Toast.makeText(this, string, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, string, Toast.LENGTH_SHORT).show();
 
 	}
 
