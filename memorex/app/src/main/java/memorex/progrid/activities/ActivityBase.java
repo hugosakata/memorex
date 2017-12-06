@@ -22,6 +22,10 @@ public class ActivityBase extends AppCompatActivity {
     protected ImageView btnListOrCal;
     protected ImageView btnPesquisar;
     protected ImageView btnLembrete;
+    protected ImageView botRex;
+    protected ImageView botRexInativo;
+    protected ImageView memoBtnInativo;
+    protected ImageView memoBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,24 @@ public class ActivityBase extends AppCompatActivity {
         setContentView(R.layout.activity_base);
 
         common = (Common)getApplicationContext();
+
+        botRexInativo = (ImageView) findViewById(R.id.botRexInativo);
+        botRexInativo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), RexActivity.class));
+
+            }
+        });
+
+        memoBtnInativo = (ImageView) findViewById(R.id.memoBtnInativo);
+        memoBtnInativo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), CalendarActivity.class));
+
+            }
+        });
 
         btnListOrCal = (ImageView) findViewById(R.id.btnListOrCal);
 
