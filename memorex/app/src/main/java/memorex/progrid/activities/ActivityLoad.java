@@ -47,9 +47,9 @@ public class ActivityLoad extends AppCompatActivity {
 
         if (item == null)
         //agencia 11, conta 22, mes 11, ano 2017
-            new HttpLoadMes(common, this, "dadositemMes/11/22/11/2017", txtmsg).execute();
+            new HttpLoadMes(common, this, "dadositemMes/2763/105159/12/2017", txtmsg).execute();
         else
-            new HttpLoadItem(common, this, "dadositemMes/11/22/11/2017").execute();
+            new HttpLoadItem(common, this, "dadositemMes/2763/105159/12/2017").execute();
 
     }
 }

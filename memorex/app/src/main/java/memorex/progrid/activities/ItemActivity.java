@@ -21,6 +21,7 @@ import memorex.progrid.base.Item;
 import memorex.progrid.base.ManipuladorJson;
 import memorex.progrid.memorex2.R;
 import android.app.AlertDialog.Builder;
+import android.widget.Toast;
 
 /**
  * Created by progrid on 19/10/17.
@@ -37,8 +38,20 @@ public class ItemActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Serializable objeto = intent.getSerializableExtra("item");
-        if (objeto !=null)
+        if (objeto !=null) {
             item = (Item) objeto;
+
+            TextView txtNome = (TextView) findViewById(R.id.txtNome);
+            txtNome.setText(item.getNome());
+            TextView txtValor = (TextView) findViewById(R.id.txtValor);
+            txtValor.setText(item.getValor());
+            TextView txtData = (TextView) findViewById(R.id.txtData);
+            txtData.setText(item.getData_agendamento().toString());
+            TextView txtCdBarra = (TextView) findViewById(R.id.txtCdBarra);
+            txtCdBarra.setText(item.getCodigo_barra());
+        }
+        else
+            Toast.makeText(this, "Item não encontrado", Toast.LENGTH_SHORT).show();
 
         ImageView btnBack = (ImageView) findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -146,19 +159,6 @@ public class ItemActivity extends AppCompatActivity {
             }
 
         });
-
-
-
-        TextView txtNome = (TextView) findViewById(R.id.txtNome);
-        txtNome.setText(item.getNome());
-        TextView txtValor = (TextView) findViewById(R.id.txtValor);
-        txtValor.setText(item.getValor());
-        TextView txtData = (TextView) findViewById(R.id.txtData);
-        txtData.setText(item.getData_agendamento().toString());
-        TextView txtCdBarra = (TextView) findViewById(R.id.txtCdBarra);
-        txtCdBarra.setText(item.getCodigo_barra());
-
-
 
 
     }

@@ -15,6 +15,8 @@ import memorex.progrid.base.ManipuladorJson;
 import memorex.progrid.http.HttpLoadMes;
 import memorex.progrid.memorex2.R;
 
+import com.onesignal.OneSignal;
+
 public class ActivityBase extends AppCompatActivity {
 
     protected FrameLayout base;
@@ -30,6 +32,7 @@ public class ActivityBase extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_base);
 
         common = (Common)getApplicationContext();

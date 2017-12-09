@@ -1,3 +1,13 @@
+plugins {
+    id 'com.onesignal.androidsdk.onesignal-gradle-plugin' version '0.7.0'
+}
+
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+
+repositories {
+    maven { url 'https://maven.google.com' }
+}
+
 apply plugin: 'com.android.application'
 
 android {
@@ -6,10 +16,14 @@ android {
 
     defaultConfig {
         applicationId "memorex.progrid.memorex2"
+        manifestPlaceholders = [onesignal_app_id: "1c245119-f239-4630-87a1-4595551535e1",
+                                // Project number pulled from dashboard, local value is ignored.
+                                onesignal_google_project_number: "REMOTE"]
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+
     }
     buildTypes {
         release {
@@ -25,5 +39,10 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.ibm.watson.developer_cloud:java-sdk:3.7.2'
     compile 'com.android.support:design:24.2.0'
+    compile 'com.onesignal:OneSignal:[3.6.5, 3.99.99]'
+
+    compile 'com.google.android.gms:play-services-gcm:11.0.4'
+
     testCompile 'junit:junit:4.12'
 }
+
